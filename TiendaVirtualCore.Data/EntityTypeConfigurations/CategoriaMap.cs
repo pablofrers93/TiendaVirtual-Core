@@ -5,7 +5,7 @@ using TiendaVirtualCore.Entities.Models;
 namespace TiendaVirtualCore.Data.EntityTypeConfigurations
 {
     public class CategoriaMap
-    {
+    {       
         public CategoriaMap(EntityTypeBuilder<Categoria> builder)
         {
             builder.ToTable("Categorias");

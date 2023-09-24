@@ -18,5 +18,6 @@ namespace TiendaVirtualCore.Data
         }
 
         public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Pais> Paises { get; set; }
     }
 }
