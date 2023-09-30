@@ -7,7 +7,7 @@ namespace TiendaVirtualCore.Web.ViewModels.Pais
     {
         public int PaisId { get; set; }
 
-        [Display(Name = "País")]
+        [Display(Name = "Country")]
         public string NombrePais { get; set; }
     }
 }

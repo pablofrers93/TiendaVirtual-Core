@@ -25,8 +25,12 @@ namespace TiendaVirtualCore.Web
                 );
             builder.Services.AddScoped<IRepositorioCategorias, RepositorioCategorias>();
             builder.Services.AddScoped<IServiciosCategorias, ServiciosCategorias>();
+
             builder.Services.AddScoped<IRepositorioPaises, RepositorioPaises>();
             builder.Services.AddScoped<IServiciosPaises, ServiciosPaises>();
+
+            builder.Services.AddScoped<IRepositorioCiudades, RepositorioCiudades>();
+            builder.Services.AddScoped<IServiciosCiudades, ServiciosCiudades>();
 
             builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 

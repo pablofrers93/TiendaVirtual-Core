@@ -9,14 +9,13 @@ using TiendaVirtualCore.Entities.Models;
 
 namespace TiendaVirtualCore.Data.EntityTypeConfigurations
 {
-    public class PaisMap:IEntityTypeConfiguration<Pais>
+    public class CiudadMap : IEntityTypeConfiguration<Ciudad>
     {
-
-        public void Configure(EntityTypeBuilder<Pais> builder)
+        public void Configure(EntityTypeBuilder<Ciudad> builder)
         {
-            builder.ToTable("Paises");
-            builder.HasKey(p => p.PaisId);
-            builder.Property(p => p.RowVersion).IsRowVersion();
+            builder.ToTable("Ciudades");
+            builder.HasKey(c => c.CiudadId);
+            builder.Property(c => c.RowVersion).IsRowVersion();
         }
     }
 }

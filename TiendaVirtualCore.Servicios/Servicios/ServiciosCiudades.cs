@@ -1,26 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TiendaVirtualCore.Data;
 using TiendaVirtualCore.Data.Interfaces;
-using TiendaVirtualCore.Data.Repositorios;
-using TiendaVirtualCore.Entities.Dtos.Pais;
+using TiendaVirtualCore.Data;
+using TiendaVirtualCore.Entities.Dtos.Ciudad;
 using TiendaVirtualCore.Entities.Models;
 using TiendaVirtualCore.Servicios.Interfaces;
 
 namespace TiendaVirtualCore.Servicios.Servicios
 {
-    public class ServiciosPaises : IServiciosPaises
+    public class ServiciosCiudades : IServiciosCiudades
     {
-        private readonly IRepositorioPaises _repositorio;
+        private readonly IRepositorioCiudades _repositorio;
         private readonly IUnitOfWork _unitOfWork;
 
-        public ServiciosPaises(IRepositorioPaises repositorioPaises, IUnitOfWork unitOfWork)
+        public ServiciosCiudades(IRepositorioCiudades repositorioCiudades, IUnitOfWork unitOfWork)
         {
-            _repositorio = repositorioPaises;
+            _repositorio = repositorioCiudades;
             _unitOfWork = unitOfWork;
         }
         public void Borrar(int id)
@@ -31,16 +29,16 @@ namespace TiendaVirtualCore.Servicios.Servicios
                 _unitOfWork.SaveChanges();
             }
             catch (Exception)
-            { 
+            {
                 throw;
             }
         }
 
-        public bool EstaRelacionado(Pais pais)
+        public bool EstaRelacionado(Ciudad ciudad)
         {
             try
             {
-                return _repositorio.EstaRelacionado(pais);
+                return _repositorio.EstaRelacionado(ciudad);
             }
             catch (Exception)
             {
@@ -48,11 +46,11 @@ namespace TiendaVirtualCore.Servicios.Servicios
             }
         }
 
-        public bool Existe(Pais pais)
+        public bool Existe(Ciudad ciudad)
         {
             try
             {
-                return _repositorio.Existe(pais);
+                return _repositorio.Existe(ciudad);
             }
             catch (Exception)
             {
@@ -60,11 +58,16 @@ namespace TiendaVirtualCore.Servicios.Servicios
             }
         }
 
-        public List<PaisListDto> GetPaises()
+        public int GetCantidad()
+        {
+            return _repositorio.GetCantidad();
+        }
+
+        public List<CiudadListDto> GetCiudades()
         {
             try
             {
-                return _repositorio.GetPaises();
+                return _repositorio.GetCiudades();
             }
             catch (Exception)
             {
@@ -72,24 +75,11 @@ namespace TiendaVirtualCore.Servicios.Servicios
             }
         }
 
-        public List<SelectListItem> GetPaisesDropDown()
+        public Ciudad GetCiudadPorId(int ciudadId)
         {
             try
             {
-                return _repositorio.GetPaisesDropDown();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public Pais GetPaisPorId(int paisId)
-        {
-            try
-            {
-                return _repositorio.GetPaisPorId(paisId);
+                return _repositorio.GetCiudadPorId(ciudadId);
             }
             catch (Exception)
             {
@@ -97,18 +87,18 @@ namespace TiendaVirtualCore.Servicios.Servicios
             }
         }
 
-        public void Guardar(Pais pais)
+        public void Guardar(Ciudad ciudad)
         {
             try
             {
-                if (pais.PaisId == 0)
+                if (ciudad.CiudadId == 0)
                 {
-                    _repositorio.Agregar(pais);
+                    _repositorio.Agregar(ciudad);
 
                 }
                 else
                 {
-                    _repositorio.Editar(pais);
+                    _repositorio.Editar(ciudad);
                 }
                 _unitOfWork.SaveChanges();
             }
@@ -119,3 +109,4 @@ namespace TiendaVirtualCore.Servicios.Servicios
         }
     }
 }
+

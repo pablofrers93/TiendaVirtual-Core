@@ -1,4 +1,4 @@
-﻿@using TiendaVirtualCore.Web.ViewModels.Categoria;
+﻿﻿@using TiendaVirtualCore.Web.ViewModels.Categoria;
 @model CategoriaEditVm
 @{
     ViewData["Title"] = "Delete";
@@ -8,7 +8,7 @@
     <input type="hidden" asp-for="CategoriaId" />
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-primary">Borrar Categoria</h2>
+            <h2 class="text-primary">Remove Category</h2>
         </div>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="mb-3">
@@ -19,14 +19,15 @@
             <label asp-for="Descripcion" class="form-label"></label>
             <textarea asp-for="Descripcion" disabled rows="4" class="form-control"></textarea>
         </div>
-        
-        <button type="submit" class="btn btn-danger" style="width:200px" >
-            <i class="bi bi-trash3"></i>  &nbsp
-            Borrar</button>
+
+        <button type="submit" class="btn btn-danger" style="width:200px">
+            <i class="bi bi-floppy"></i> &nbsp;
+            Delete
+        </button>
         <a asp-controller="Categoria" asp-action="Index" style="width:200px" class="btn btn-success">
-            <i class="bi bi-skip-backward"></i> &nbsp
-            Volver 
+            <i class="bi bi-backspace"></i>  &nbsp;
+            Back To List
         </a>
-       
+
     </div>
 </form>

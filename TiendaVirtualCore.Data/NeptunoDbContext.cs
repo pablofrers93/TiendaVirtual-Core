@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Reflection;
+using TiendaVirtualCore.Data.EntityTypeConfigurations;
 using TiendaVirtualCore.Entities.Models;
 
 namespace TiendaVirtualCore.Data
@@ -14,10 +15,14 @@ namespace TiendaVirtualCore.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.ApplyConfiguration<Categoria>(new CategoriaMap());
+            modelBuilder.ApplyConfiguration<Pais>(new PaisMap());
+            modelBuilder.ApplyConfiguration<Ciudad>(new CiudadMap());
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Pais> Paises { get; set; }
+        public DbSet<Ciudad> Ciudades { get; set; }
     }
 }

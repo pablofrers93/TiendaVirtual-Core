@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using TiendaVirtualCore.Entities.Models;
 using TiendaVirtualCore.Servicios.Interfaces;
 using TiendaVirtualCore.Web.ViewModels.Pais;
-using TiendaVirtualCore.Web.ViewModels.Pais;
 
 namespace TiendaVirtualCore.Web.Controllers
 {

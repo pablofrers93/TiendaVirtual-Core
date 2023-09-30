@@ -6,12 +6,12 @@ namespace TiendaVirtualCore.Web.ViewModels.Categoria
     {
         public int CategoriaId { get; set; }
 
-        [Display(Name = "Categoría")]
+        [Display(Name = "Category")]
         [Required(ErrorMessage ="El campo es requerido")]
         [StringLength(50,ErrorMessage ="Debe estar comprendida entre {2} y {1}",MinimumLength =3)]
         public string NombreCategoria { get; set; }
 
-        [Display(Name = "Descripción")]
+        [Display(Name = "Description")]
         [MaxLength(120, ErrorMessage = "El campo no puede superar los {1} caracteres")]
         public string? Descripcion { get; set; }
 

@@ -6,7 +6,7 @@ namespace TiendaVirtualCore.Web.ViewModels.Categoria
     {
         public int CategoriaId { get; set; }
 
-        [Display(Name ="Categoría")]
+        [Display(Name ="Category")]
         public string NombreCategoria { get; set; }
 
     }
