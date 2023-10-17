@@ -5947,13 +5947,16 @@ textarea.form-control-lg {
     flex: 1 1 auto;
     padding: var(--bs-modal-padding);
 }
+.bold-text {
+    color:black;
+}
 
 footer {
     background-color: #343a40; /* Color de fondo */
     color: #fff; /* Color del texto */
     padding: 20px 0; /* Espaciado interior superior e inferior */
     text-align: center; /* Alineación del texto */
-    position: fixed; /* Para mantener el footer pegado en la parte inferior */
+    position:inherit; /* Para mantener el footer pegado en la parte inferior */
     bottom: 0; /* Para pegar el footer en la parte inferior */
     width: 100%; /* Para ocupar todo el ancho de la pantalla */
 }

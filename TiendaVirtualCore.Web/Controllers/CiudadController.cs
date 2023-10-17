@@ -21,11 +21,30 @@ namespace TiendaVirtualCore.Web.Controllers
             _mapper = mapper;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string SortBy = "City")
         {
             var listaCiudades = _servicio.GetCiudades();
             var listaCiudadesVm = _mapper.Map<List<CiudadListVm>>(listaCiudades);
-            return View(listaCiudadesVm);
+
+            if (SortBy == "City")
+            {
+                listaCiudadesVm = listaCiudadesVm.OrderBy(c=> c.NombreCiudad).ToList();
+            }
+            else
+            {
+                listaCiudadesVm = listaCiudadesVm.OrderBy(c => c.NombrePais)
+                    .ThenBy(c => c.NombreCiudad).ToList();
+            }
+            var ciudadVm = new CiudadSortListVm
+            {
+                Ciudades = listaCiudadesVm,
+                Sorts = new Dictionary<string, string> {
+                    {"By City", "City"},
+                    {"By Country", "Country"}
+            },
+                SortBy = SortBy
+            };
+            return View(ciudadVm);
         }
         [HttpGet]
         public IActionResult Create()
